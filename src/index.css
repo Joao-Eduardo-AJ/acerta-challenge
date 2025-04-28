@@ -1,0 +1,76 @@
+:root {
+  font-family: 'Source Sans Pro', system-ui, Helvetica, Arial, sans-serif;
+
+  /* brand */
+  --color-primary: #198cff;
+  --color-secondary: #ff9933;
+
+  /* white */
+  --color-white: #ffffff;
+
+  /* gray-palette */
+  --color-gray-base: #71727d;
+  --color-gray-dark: #4d4f5c;
+  --color-gray-lighter: #dce1e5;
+  --color-gray-background: #f4f5f7;
+  --color-gray-light: #b9c2cb;
+  --color-gray-darker: #252433;
+  --color-background-system: #f5f6fa;
+
+  /* font-size */
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+
+  /* font-weight */
+  --semibold: 600;
+  --regular: 400;
+
+  /* line-height */
+  --leading-sm: 120%;
+  --leading-md: 140%;
+  --leading-lg: 150%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-md {
+  font-size: var(--text-md);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+}
+
+.text-xl {
+  font-size: var(--title-xl);
+}
+
+.semibold {
+  font-weight: var(--semibold);
+}
+
+.regular {
+  font-weight: var(--regular);
+}
+
+.leading-sm {
+  line-height: var(--leading-sm);
+}
+
+.leading-md {
+  line-height: var(--leading-md);
+}
+
+.leading-lg {
+  line-height: var(--leading-lg);
+}
