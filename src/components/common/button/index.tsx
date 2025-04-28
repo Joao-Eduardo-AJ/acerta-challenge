@@ -1,8 +1,9 @@
 import React from 'react'
+import './button.css'
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'contained' | 'outlined' | 'text'
-  color?: 'primary' | 'secondary'
+  color?: 'primary' | 'gray'
 }
 
 export const Button = ({
@@ -14,7 +15,7 @@ export const Button = ({
   return (
     <button
       {...rest}
-      className={`color-${color} variant-${variant} ${className}`.trim()}
+      className={`button ${color} ${variant} ${className}`.trim()}
     />
   )
 }
