@@ -1,5 +1,13 @@
 import { useNavigate } from 'react-router'
 import { Button } from '../components/common/button'
+import { Form, Formik } from 'formik'
+import * as yup from 'yup'
+import Input from '../components/common/input'
+
+const validationSchema = yup.object({
+  name: yup.string().required('Name is required'),
+  email: yup.string().email('Invalid email').required('Email is required')
+})
 
 const LeadListPage = () => {
   const navigate = useNavigate()
@@ -33,8 +41,24 @@ const LeadListPage = () => {
           text gray
         </Button>
       </div>
+      <Formik
+        initialValues={{ name: '', email: '' }}
+        validationSchema={validationSchema}
+        onSubmit={values => {
+          console.log(values)
+        }}
+      >
+        {() => (
+          <Form>
+            <Input name="name" label="Name" placeholder="Enter your name" />
+            <Input name="email" label="Email" placeholder="Enter your email" />
+            <button type="submit" className="button">
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
       <button onClick={handleNewLead}>New Lead</button>
-      {/* Here will be the Filters and Leads Table */}
     </div>
   )
 }

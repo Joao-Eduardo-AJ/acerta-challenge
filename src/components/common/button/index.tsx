@@ -1,7 +1,6 @@
-import React from 'react'
 import './button.css'
 
-interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'contained' | 'outlined' | 'text'
   color?: 'primary' | 'gray'
 }
@@ -11,7 +10,7 @@ export const Button = ({
   variant = 'contained',
   className = '',
   ...rest
-}: IButton) => {
+}: ButtonProps) => {
   return (
     <button
       {...rest}
