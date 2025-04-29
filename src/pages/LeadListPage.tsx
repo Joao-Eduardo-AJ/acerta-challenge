@@ -5,6 +5,7 @@ import * as yup from 'yup'
 import Input from '../components/common/input'
 import Select from '../components/common/select'
 import MaskedInput from '../components/common/masked-input'
+import { Logo } from '@src/components/logo'
 
 const validationSchema = yup.object({
   name: yup.string().required('Name is required'),
@@ -77,6 +78,7 @@ const LeadListPage = () => {
         )}
       </Formik>
       <button onClick={handleNewLead}>New Lead</button>
+      <Logo />
     </div>
   )
 }
