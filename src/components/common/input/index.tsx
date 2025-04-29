@@ -1,11 +1,12 @@
 import { Field, useField } from 'formik'
-import './input.css'
+import '@src/styles/input.css'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
+  mask?: string | (string | RegExp)[]
 }
 
-const Input = ({ label, ...props }: InputProps) => {
+const Input = ({ label, mask, ...props }: InputProps) => {
   const [field, meta] = useField(props.name)
 
   return (
@@ -13,12 +14,16 @@ const Input = ({ label, ...props }: InputProps) => {
       <label htmlFor={props.name} className="input-label">
         {label}
       </label>
-      <Field
-        {...field}
-        {...props}
-        id={props.name}
-        className={`input-field ${meta.touched && meta.error ? 'input-error' : ''}`}
-      />
+      {mask ? (
+        <></>
+      ) : (
+        <Field
+          {...field}
+          {...props}
+          id={props.name}
+          className={`input-field ${meta.touched && meta.error ? 'input-error' : ''}`}
+        />
+      )}
       {meta.touched && meta.error && (
         <div className="input-error-message">{meta.error}</div>
       )}
