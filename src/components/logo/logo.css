@@ -9,6 +9,7 @@
 }
 
 .logo-certa {
+  z-index: 1;
   opacity: 0;
   padding: 0 24px;
 }

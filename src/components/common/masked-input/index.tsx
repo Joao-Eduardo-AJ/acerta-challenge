@@ -25,7 +25,7 @@ const applyPattern = (value: string, pattern: string) => {
   return formatted
 }
 
-const MaskedInput = ({ label, mask, ...props }: MaskedInputProps) => {
+export const MaskedInput = ({ label, mask, ...props }: MaskedInputProps) => {
   const [field, meta, helpers] = useField(props.name)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,5 +53,3 @@ const MaskedInput = ({ label, mask, ...props }: MaskedInputProps) => {
     </div>
   )
 }
-
-export default MaskedInput

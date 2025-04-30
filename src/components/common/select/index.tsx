@@ -1,18 +1,18 @@
 import { useField } from 'formik'
 import '@src/styles/input.css'
+import { SelectHTMLAttributes } from 'react'
 
 interface Option {
   value: string
   label: string
 }
 
-interface SelectProps {
+type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   label: string
-  name: string
   options: Option[]
 }
 
-const Select = ({ label, options, ...props }: SelectProps) => {
+export const Select = ({ label, options, ...props }: SelectProps) => {
   const [field, meta] = useField(props.name)
 
   return (
@@ -39,5 +39,3 @@ const Select = ({ label, options, ...props }: SelectProps) => {
     </div>
   )
 }
-
-export default Select

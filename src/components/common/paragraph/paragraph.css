@@ -1,0 +1,20 @@
+.p1 {
+  color: var(--color-gray-darker);
+  font-size: var(--text-lg);
+  font-weight: var(--semibold);
+  line-height: var(--leading-sm);
+}
+
+.p2,
+.caption {
+  font-size: var(--text-sm);
+  line-height: var(--leading-md);
+}
+
+.p2 {
+  color: var(--color-gray-dark);
+}
+
+.caption {
+  color: var(--color-gray-light);
+}

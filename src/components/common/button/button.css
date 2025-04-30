@@ -1,51 +1,57 @@
 .button {
-    font-weight: var(--semibold);
-    font-size: var(--text-md);
-    line-height: var(--leading-lg);
-    height: 40px;
-    min-width: 120px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .button.contained.primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-  }
-  
-  .button.outlined.primary {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 
-  .button.text.primary {
-    background-color: transparent;
-    color: var(--color-primary);
-  }
+  font-weight: var(--semibold);
+  font-size: var(--text-md);
+  line-height: var(--leading-lg);
 
-  .button.contained.gray {
-    background-color: var(--color-gray-base);
-    color: var(--color-white);
-  }
-  
-  .button.outlined.gray {
-    background-color: transparent;
-    color: var(--color-gray-base);
-    border: 1px solid var(--color-gray-base);
-  }
+  height: 40px;
+  min-width: 133px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-  .button.text.gray {
-    background-color: transparent;
-    color: var(--color-gray-base);
-  }
+.button.contained.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
 
-  .button:hover {
-    filter: brightness(80%);
-  }
+.button.outlined.primary {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
 
-  .button:disabled {
-    cursor: not-allowed;
-    filter: opacity(.5);
-  }
+.button.text.primary {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.button.contained.gray {
+  background-color: var(--color-gray-base);
+  color: var(--color-white);
+}
+
+.button.outlined.gray {
+  background-color: var(--color-white);
+  color: var(--color-gray-base);
+  border: 1px solid var(--color-gray-base);
+}
+
+.button.text.gray {
+  background-color: transparent;
+  color: var(--color-gray-base);
+}
+
+.button:hover {
+  filter: brightness(80%);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  filter: opacity(0.5);
+}

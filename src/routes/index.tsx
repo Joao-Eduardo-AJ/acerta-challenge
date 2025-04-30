@@ -1,22 +1,22 @@
-import { createBrowserRouter } from "react-router";
-import LeadListPage from "../pages/LeadListPage";
-import LeadFormPage from "../pages/LeadFormPage";
+import { createBrowserRouter, Navigate } from 'react-router'
+import { CreateLeadPage } from '@src/pages/leads/create'
+import { ListLeadPage } from '@src/pages/leads'
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <LeadListPage />,
+    path: '/',
+    element: <Navigate to="/leads" replace />
   },
   {
-    path: "/leads",
-    element: <LeadListPage />,
+    path: '/leads',
+    element: <ListLeadPage />
   },
   {
-    path: "/leads/new",
-    element: <LeadFormPage />,
+    path: '/leads/new',
+    element: <CreateLeadPage />
   },
   {
-    path: "/leads/:id/edit",
-    element: <LeadFormPage />,
-  },
-]);
+    path: '/leads/:id/edit',
+    element: <CreateLeadPage />
+  }
+])
