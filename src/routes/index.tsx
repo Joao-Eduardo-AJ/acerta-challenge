@@ -1,6 +1,5 @@
+import { CreateLeadPage, ListLeadPage } from '@src/pages/leads'
 import { createBrowserRouter, Navigate } from 'react-router'
-import { CreateLeadPage } from '@src/pages/leads/create'
-import { ListLeadPage } from '@src/pages/leads'
 
 export const router = createBrowserRouter([
   {

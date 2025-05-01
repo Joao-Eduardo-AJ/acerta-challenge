@@ -1,10 +1,11 @@
+import { TablePagination } from '@src/components/common'
 import { useAppContext, useDebounce } from '@src/hooks'
-import { list } from '@src/services/leads/leads.service'
+import { listUsers } from '@src/services/leads'
+import { sanitizeField } from '@src/utils'
 import { useFormikContext } from 'formik'
 import React from 'react'
 import { MdDeleteOutline, MdOutlineEdit } from 'react-icons/md'
 import { toast } from 'react-toastify'
-import { TablePagination } from './table-pagination'
 
 export function Table() {
   const [page, setPage] = React.useState(0)
@@ -21,8 +22,11 @@ export function Table() {
 
   async function loadLeads() {
     try {
-      const newCpf = dCpf.replace(/[.-]/g, '')
-      const { data, items } = await list(page + 1, newCpf, name)
+      const { data, items } = await listUsers(
+        page + 1,
+        sanitizeField(dCpf),
+        name
+      )
       handleLeads(data)
       setCount(items)
     } catch (error: unknown) {

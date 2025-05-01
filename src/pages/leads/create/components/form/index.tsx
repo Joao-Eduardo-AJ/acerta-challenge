@@ -12,6 +12,8 @@ import React from 'react'
 import { useNavigate } from 'react-router'
 import * as y from 'yup'
 import { validationSchema } from './schema'
+import { getOptions } from '@src/services/marital'
+import { toast } from 'react-toastify'
 
 type CreateFormProps = {
   steps: { id: number; label: string }[]
@@ -20,15 +22,40 @@ type CreateFormProps = {
 export function CreateForm({ steps }: CreateFormProps) {
   const navigate = useNavigate()
   const { currentStep, goPrev, goNext, handleFilledFields } = useAppContext()
-  const { values, handleChange, handleBlur, handleSubmit } =
+  const { values, handleChange, handleBlur, handleSubmit, errors } =
     useFormikContext<y.InferType<typeof validationSchema>>()
+  const [options, setOptions] = React.useState<string[]>([])
 
   const navigateLeads = () => navigate('/leads')
+
+  async function loadMaritalOptions() {
+    try {
+      const newOptions = await getOptions()
+      setOptions(newOptions)
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Unknown error retrieving marital options. Please try again.'
+
+      toast.error(`API error: ${message}`)
+    }
+  }
 
   React.useEffect(() => {
     const newFields = Object.values(values).filter(value => value !== '').length
     handleFilledFields(newFields)
   }, [handleFilledFields, values])
+
+  React.useEffect(() => {
+    if ((errors.cpf || errors.name) && currentStep > 0) {
+      goPrev()
+    }
+  }, [errors.cpf, errors.name])
+
+  React.useEffect(() => {
+    loadMaritalOptions()
+  }, [])
 
   return (
     <Form className="container">
@@ -69,7 +96,7 @@ export function CreateForm({ steps }: CreateFormProps) {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.maritalStatus}
-                  options={[]}
+                  options={options.map(opt => ({ label: opt, value: opt }))}
                 />
                 <Input
                   label="Nome do cônjugue"
@@ -98,7 +125,7 @@ export function CreateForm({ steps }: CreateFormProps) {
                 value={values.email}
               />
               <MaskedInput
-                mask="(99) 999 999 999"
+                mask="(99) 9 9999-9999"
                 label="Telefone"
                 name="tel"
                 placeholder="Digite o telefone do cliente"

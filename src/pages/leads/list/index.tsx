@@ -2,7 +2,7 @@ import { Button, Input, MaskedInput } from '@src/components/common'
 import { Form, Formik } from 'formik'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { Table } from '../../components/common/table'
+import { Table } from './components'
 
 export const ListLeadPage = () => {
   const navigate = useNavigate()

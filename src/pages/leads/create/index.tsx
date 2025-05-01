@@ -1,9 +1,12 @@
 import { useAppContext } from '@src/hooks'
 import { Formik } from 'formik'
-import { useParams } from 'react-router'
-import * as y from 'yup'
+import { useNavigate, useParams } from 'react-router'
 import { CreateForm, Stepper } from './components'
 import { validationSchema } from './components/form/schema'
+import { createUser } from '@src/services/leads'
+import { ILead } from '@src/types/leads'
+import { toast } from 'react-toastify'
+import { sanitizeField } from '@src/utils'
 
 const steps = [
   { id: 1, label: 'Dados Pessoais' },
@@ -11,15 +14,32 @@ const steps = [
 ]
 
 export const CreateLeadPage = () => {
-  const { currentStep, filledFields } = useAppContext()
+  const navigate = useNavigate()
+  const { filledFields } = useAppContext()
 
   const { id } = useParams()
 
   const isEditMode = Boolean(id)
 
-  function handleSubmit(values: y.InferType<typeof validationSchema>) {
-    console.log(values)
-    console.log(currentStep)
+  async function handleSubmit(values: ILead) {
+    // I would like to validate the information
+    // of previously registered users but this
+    // would be the responsibility of the backend
+
+    values.cpf = sanitizeField(values.cpf)
+    values.tel = sanitizeField(values.tel)
+    try {
+      createUser(values)
+      toast.success(`User registered successfully`)
+      navigate('/leads')
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Unknown error. Please try again.'
+
+      toast.error(`API error: ${message}`)
+    }
   }
 
   return (

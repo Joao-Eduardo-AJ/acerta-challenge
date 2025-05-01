@@ -1,6 +1,6 @@
+import { Paragraph } from '@src/components/common'
 import { useRef } from 'react'
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md'
-import { Paragraph } from '../../paragraph'
 import './table-pagination.css'
 
 interface TablePaginationProps {

@@ -1,11 +1,11 @@
 export interface ILead {
-  id: number
+  id?: number
   name: string
   email: string
   tel: string
   cpf: string
-  maritalStatus: string
-  spousesName: string
+  maritalStatus?: string
+  spousesName?: string
 }
 
 export interface ILeadsResponse {
