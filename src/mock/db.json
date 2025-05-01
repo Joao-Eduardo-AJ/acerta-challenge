@@ -1,0 +1,131 @@
+{
+  "leads": [
+    {
+      "id": 1,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 2,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    },
+    {
+      "id": 3,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 4,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    },
+    {
+      "id": 5,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 6,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    },
+    {
+      "id": 7,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 8,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    },
+    {
+      "id": 9,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 10,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    },
+    {
+      "id": 11,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 12,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    },
+    {
+      "id": 13,
+      "name": "João da Silva Siqueira",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "cpf": "05537357054",
+      "maritalStatus": "Solteiro(a)",
+      "spousesName": ""
+    },
+    {
+      "id": 14,
+      "name": "Márcio dos Santos",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "cpf": "30356473058",
+      "maritalStatus": "Casado(a)",
+      "spousesName": "Silvana Spohr"
+    }
+  ],
+  "marital/options": ["SINGLE", "MARRIED", "WIDOWER", "SEPARATED"]
+}

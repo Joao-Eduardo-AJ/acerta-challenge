@@ -1,22 +1,13 @@
-import { Button, Input, MaskedInput, Paragraph } from '@src/components/common'
-import { Formik, Form } from 'formik'
+import { Button, Input, MaskedInput } from '@src/components/common'
+import { Form, Formik } from 'formik'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import * as yup from 'yup'
-
-const validationSchema = yup.object({
-  name: yup.string().optional(),
-  cpf: yup.string().optional()
-})
+import { Table } from '../../components/common/table'
 
 export const ListLeadPage = () => {
   const navigate = useNavigate()
 
   const handleNavigate = () => navigate('new')
-
-  function handleSubmit(values: yup.InferType<typeof validationSchema>) {
-    alert(JSON.stringify(values, null, 2))
-  }
 
   return (
     <main>
@@ -26,46 +17,44 @@ export const ListLeadPage = () => {
           Novo Lead <IoMdAdd size={22.5} />
         </Button>
       </div>
-      <Formik
-        initialValues={{ name: '', cpf: '' }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting, resetForm, handleChange, handleBlur, values }) => (
-          <Form className="paper container">
-            <div className="fields-row">
-              <MaskedInput
-                mask="999.999.999-99"
-                label="CPF"
-                name="cpf"
-                placeholder="Digite o CPF do cliente"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.cpf}
-              />
-              <Input
-                label="Nome do cliente"
-                placeholder="Digite o nome do cliente"
-                name="name"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.name}
-              />
-            </div>
-            <div className="actions-row">
-              <Button onClick={() => resetForm()} variant="outlined">
-                Limpar tudo
-              </Button>
-              <Button type="submit" disabled={isSubmitting}>
-                Filtrar
-              </Button>
-            </div>
-          </Form>
+      <Formik initialValues={{ cpf: '', name: '' }} onSubmit={() => {}}>
+        {({ resetForm, handleChange, values }) => (
+          <>
+            <Form className="paper container">
+              <div className="fields-row">
+                <MaskedInput
+                  mask="999.999.999-99"
+                  label="CPF"
+                  name="cpf"
+                  placeholder="Digite o CPF do cliente"
+                  onChange={handleChange}
+                  value={values.cpf}
+                />
+                <Input
+                  label="Nome do cliente"
+                  placeholder="Digite o nome do cliente"
+                  name="name"
+                  onChange={handleChange}
+                  value={values.name}
+                />
+              </div>
+              <div className="actions-row">
+                <Button
+                  type="button"
+                  onClick={() => resetForm()}
+                  variant="outlined"
+                >
+                  Limpar tudo
+                </Button>
+                {/* We don't necessarily need to click to
+                  filter since we are using useDebounce
+                <Button type="submit">Filter</Button> */}
+              </div>
+            </Form>
+            <Table />
+          </>
         )}
       </Formik>
-      <table className="paper">
-        <Paragraph variant="caption">Nenhum lead cadastrado</Paragraph>
-      </table>
     </main>
   )
 }

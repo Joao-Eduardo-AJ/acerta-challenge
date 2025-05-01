@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "preview": "vite preview",
     "autofix": "eslint . --fix",
-    "preview": "vite preview"
+    "mock": "npx json-server src/mock/db.json"
   },
   "dependencies": {
     "axios": "^1.9.0",

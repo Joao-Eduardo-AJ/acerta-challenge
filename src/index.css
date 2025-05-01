@@ -64,7 +64,86 @@ button {
 }
 
 button:disabled {
-  cursor: not-allowed;
+  cursor: default;
+}
+
+/* table global styles */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-size: 0.875rem;
+  background-color: var(--color-gray-background);
+  color: var(--color-gray-dark);
+  font-size: var(--text-sm);
+  line-height: var(--leading-sm);
+  font-weight: var(--semibold);
+  padding: 0 0 0 1.5rem;
+  height: 33px;
+}
+
+td {
+  background-color: var(--color-white);
+  font-size: 0.875rem;
+  vertical-align: middle;
+  color: var(--color-gray-base);
+  font-size: var(--text-sm);
+  line-height: var(--leading-md);
+  height: 2.75rem;
+}
+
+td.row-action {
+  max-width: 1.5rem;
+}
+
+th:first-child {
+  border-radius: 0.25rem 0 0 0;
+}
+
+th:last-child {
+  border-radius: 0 0.25rem 0 0;
+}
+
+tbody > tr:nth-child(even) > td {
+  background-color: var(--color-gray-background);
+}
+
+tbody > tr > td {
+  padding: 0 0 0 1.5rem;
+}
+
+tbody > tr > td:last-child {
+  border-right: 1px solid var(--color-gray-background);
+  padding-right: 1.5rem;
+}
+
+tbody > tr > td:first-child {
+  border-left: 1px solid var(--color-gray-background);
+}
+
+/* icon buttons */
+
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--gray-base);
+  border-radius: 50%;
+}
+
+.icon-button:hover {
+  box-shadow: 1px 6px 10px var(--color-gray-lighter);
+  transform: scale(1.1);
+}
+
+.icon-button.small {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* layout selectors */
@@ -73,7 +152,7 @@ button:disabled {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
+  height: 2.5rem;
 }
 
 .paper {
