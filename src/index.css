@@ -17,6 +17,7 @@
   --color-gray-darker: #252433;
   --color-background-system: #f5f6fa;
   --color-error: #ff0000;
+  --color-success: #29a33d;
 
   /* font-size */
   --text-sm: 14px;
@@ -58,6 +59,14 @@ h2 {
   line-height: var(--leading-sm);
 }
 
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 /* layout selectors */
 
 .title-container {
@@ -72,6 +81,7 @@ h2 {
   background-color: var(--color-white);
   border-radius: 0.75rem;
   box-shadow: 0 0.5rem 1rem 1px var(--color-gray-lighter);
+  overflow: hidden;
 }
 
 .container {
@@ -89,4 +99,8 @@ h2 {
   display: flex;
   gap: 0.5rem;
   justify-content: flex-end;
+}
+
+.flex-1 {
+  flex: 1;
 }

@@ -1,6 +1,4 @@
 .logo-wrapper {
-  transition: all;
-  transition-duration: 0.5s;
   position: relative;
   width: 32px;
   display: flex;
