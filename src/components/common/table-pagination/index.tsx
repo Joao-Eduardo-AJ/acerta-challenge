@@ -18,8 +18,8 @@ export const TablePagination = ({
   onPageChange
 }: TablePaginationProps) => {
   const { t } = useTranslation()
-  const rowsPerPage = 10
   const ref = useRef<HTMLDivElement>(null)
+  const rowsPerPage = 10
 
   if (count <= 10) {
     return <></>

@@ -8,9 +8,9 @@ export const Logo = () => (
       src="/logo_certa.svg"
       alt="logo acerta"
       className="logo-certa"
-      initial={{ x: -126, opacity: 0 }}
-      whileHover={{ x: -26, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 60, damping: 10 }}
+      initial={{ x: -24, opacity: 1 }}
+      whileHover={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: 'easeIn' }}
     />
   </span>
 )

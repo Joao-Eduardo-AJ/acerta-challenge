@@ -6,15 +6,18 @@ import {
   Select
 } from '@src/components/common'
 import { useAppContext } from '@src/hooks'
+import { getOptions } from '@src/services/marital'
+import { IOption } from '@src/types/marital'
 import { Form, useFormikContext } from 'formik'
 import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { BsTelephone } from 'react-icons/bs'
+import { IoPersonOutline } from 'react-icons/io5'
 import { useNavigate, useParams } from 'react-router'
+import { toast } from 'react-toastify'
 import * as y from 'yup'
 import { validationSchema } from './schema'
-import { getOptions } from '@src/services/marital'
-import { toast } from 'react-toastify'
-import { useTranslation } from 'react-i18next'
 
 type CreateFormProps = {
   steps: { id: number; label: string }[]
@@ -26,8 +29,8 @@ export function CreateForm({ steps }: CreateFormProps) {
   const { currentStep, goPrev, goNext, handleFilledFields } = useAppContext()
   const { values, handleChange, handleBlur, handleSubmit, errors } =
     useFormikContext<y.InferType<typeof validationSchema>>()
-  const [options, setOptions] = React.useState<string[]>([])
   const { id } = useParams()
+  const [options, setOptions] = React.useState<IOption[]>([])
 
   const navigateLeads = () => navigate('/leads')
 
@@ -62,7 +65,15 @@ export function CreateForm({ steps }: CreateFormProps) {
 
   return (
     <Form className="container">
-      <Paragraph>{steps[currentStep].label}</Paragraph>
+      <div className="flex-row">
+        {currentStep === 0 && (
+          <IoPersonOutline size={20} color="var(--color-secondary)" />
+        )}
+        {currentStep === 1 && (
+          <BsTelephone size={18} color="var(--color-secondary)" />
+        )}
+        <Paragraph>{steps[currentStep].label}</Paragraph>
+      </div>
       <AnimatePresence>
         <>
           {currentStep === 0 ? (
@@ -103,9 +114,9 @@ export function CreateForm({ steps }: CreateFormProps) {
                   name="maritalStatus"
                   onBlur={handleBlur}
                   value={values.maritalStatus}
-                  options={options.map(opt => ({
-                    label: t(`maritalOption.${opt}`),
-                    value: opt
+                  options={options.map(({ id, label }) => ({
+                    id: id,
+                    label: t(`maritalOption.${label}`)
                   }))}
                 />
                 <Input

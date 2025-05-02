@@ -1,3 +1,10 @@
+select {
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* posiciona a seta */
+  background-size: 16px;
+  padding-right: 30px; /* espaço para a seta */
+}
+
 .input-wrapper {
   display: flex;
   flex-direction: column;

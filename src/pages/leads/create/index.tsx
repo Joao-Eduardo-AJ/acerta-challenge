@@ -13,8 +13,8 @@ export const CreateLeadPage = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { filledFields, leads } = useAppContext()
-
   const { id } = useParams()
+
   const lead = leads.find(l => l.id === id)
   const steps = [
     { id: 1, label: t('step.0') },
@@ -46,7 +46,7 @@ export const CreateLeadPage = () => {
   }
 
   return (
-    <div>
+    <main>
       <div className="title-container">
         <h2>{t(id ? 'pageTitle.EDIT' : 'pageTitle.CREATE')}</h2>
       </div>
@@ -67,6 +67,6 @@ export const CreateLeadPage = () => {
           <CreateForm steps={steps} />
         </Formik>
       </article>
-    </div>
+    </main>
   )
 }

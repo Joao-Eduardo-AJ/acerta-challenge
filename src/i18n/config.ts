@@ -12,7 +12,7 @@ i18n
       en_US: { translation: en_US },
       pt_BR: { translation: pt_BR }
     },
-    fallbackLng: 'pt_BR',
+    fallbackLng: 'en_US',
     supportedLngs: ['en_US', 'pt_BR'],
     detection: {
       order: ['navigator']

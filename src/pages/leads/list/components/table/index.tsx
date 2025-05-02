@@ -11,14 +11,14 @@ import { toast } from 'react-toastify'
 
 export function Table() {
   const { t } = useTranslation()
-  const [page, setPage] = React.useState(0)
-  const [count, setCount] = React.useState(0)
-  const { handleLeads, leads } = useAppContext()
   const navigate = useNavigate()
   const { values } = useFormikContext<{
     cpf: string
     name: string
   }>()
+  const { handleLeads, leads } = useAppContext()
+  const [page, setPage] = React.useState(0)
+  const [count, setCount] = React.useState(0)
   const { cpf, name } = values
 
   const dCpf = useDebounce(cpf)

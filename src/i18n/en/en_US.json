@@ -17,7 +17,7 @@
     "MARITAL_LABEL": "Marital status",
     "NAME_LABEL": "Name",
     "PLACEHOLDER": "Enter the customer's {{field}}",
-    "SPOUSES_LABEL": "Spouse's name",
+    "SPOUSES_LABEL": "Spouses name",
     "TEL_LABEL": "Phone"
   },
 

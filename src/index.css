@@ -186,3 +186,9 @@ tbody > tr > td:first-child {
 .flex-1 {
   flex: 1;
 }
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

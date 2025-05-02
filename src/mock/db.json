@@ -1,32 +1,49 @@
 {
-  "api": [
+  "leads": [
     {
-      "id": "0f1",
-      "name": "João da Silva Siqueira",
-      "email": "joaosiqueira@gmail.com",
-      "tel": "55912345678",
-      "cpf": "05537357054",
-      "maritalStatus": "Solteiro(a)",
-      "spousesName": ""
-    },
-    {
-      "id": "0f2",
-      "name": "Márcio dos Santos",
-      "email": "marciosantos@gmail.com",
-      "tel": "55987654321",
+      "name": "teste lucas ",
       "cpf": "30356473058",
       "maritalStatus": "Casado(a)",
-      "spousesName": "Silvana Spohr"
+      "spousesName": "Silvana Spohr",
+      "email": "marciosantos@gmail.com",
+      "tel": "55987654321",
+      "id": "0f2"
     },
     {
-      "id": "0f3",
       "name": "João da Silva Siqueira",
-      "email": "joaosiqueira@gmail.com",
-      "tel": "55912345678",
       "cpf": "05537357054",
       "maritalStatus": "Solteiro(a)",
-      "spousesName": ""
+      "spousesName": "",
+      "email": "joaosiqueira@gmail.com",
+      "tel": "55912345678",
+      "id": "0f3"
+    },
+    {
+      "id": "29c1",
+      "name": "teste",
+      "cpf": "02961195047",
+      "maritalStatus": "SINGLE",
+      "spousesName": "awd",
+      "email": "joao@a.com",
+      "tel": "51999459277"
     }
   ],
-  "marital": ["SINGLE", "MARRIED", "WIDOWER", "SEPARATED"]
+  "marital": [
+    {
+      "id": "SINGLE",
+      "label": "SINGLE"
+    },
+    {
+      "id": "MARRIED",
+      "label": "MARRIED"
+    },
+    {
+      "id": "WIDOWER",
+      "label": "WIDOWER"
+    },
+    {
+      "id": "SEPARATED",
+      "label": "SEPARATED"
+    }
+  ]
 }
