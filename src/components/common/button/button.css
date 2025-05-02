@@ -12,6 +12,8 @@
   min-width: 8.3rem;
   border-radius: 0.25rem;
   cursor: pointer;
+
+  transition: all .3s;
 }
 
 .button.contained.primary {
