@@ -1,6 +1,6 @@
-import { TablePagination } from '@src/components/common'
+import { Modal, TablePagination } from '@src/components/common'
 import { useAppContext, useDebounce } from '@src/hooks'
-import { listUsers } from '@src/services/leads'
+import { deleteUser, listUsers } from '@src/services/leads'
 import { sanitizeField } from '@src/utils'
 import { useFormikContext } from 'formik'
 import React from 'react'
@@ -31,6 +31,27 @@ export function Table() {
       )
       handleLeads(data)
       setCount(items)
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Unknown error. Please try again.'
+
+      toast.error(`API error: ${message}`)
+      handleLeads([])
+      setCount(0)
+    }
+  }
+
+  async function deleteLead(id?: string) {
+    if (!id) {
+      toast.error('Error while deleting: id not privided')
+      return
+    }
+    try {
+      await deleteUser(id)
+      loadLeads()
+      toast.success('User deleted sucessfully')
     } catch (error: unknown) {
       const message =
         error instanceof Error
@@ -78,9 +99,16 @@ export function Table() {
                 </button>
               </td>
               <td className="row-action">
-                <button className="icon-button small">
-                  <MdDeleteOutline size={20} />
-                </button>
+                <Modal
+                  button={
+                    <button className="icon-button small">
+                      <MdDeleteOutline size={20} />
+                    </button>
+                  }
+                  title="Are you sure?"
+                  message="This action cannot be undone, do you really want to delete the lead?"
+                  onConfirm={() => deleteLead(id)}
+                />
               </td>
             </tr>
           ))}

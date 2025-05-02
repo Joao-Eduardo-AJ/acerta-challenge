@@ -2,7 +2,7 @@ import './button.css'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'contained' | 'outlined' | 'text'
-  color?: 'primary' | 'gray'
+  color?: 'primary' | 'secondary' | 'gray'
 }
 
 export const Button = ({

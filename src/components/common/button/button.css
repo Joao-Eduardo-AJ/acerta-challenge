@@ -46,8 +46,24 @@
   color: var(--color-gray-base);
 }
 
+.button.contained.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.button.outlined.secondary {
+  background-color: var(--color-white);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+}
+
+.button.text.secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+}
+
 .button:hover {
-  filter: brightness(80%);
+  filter: brightness(90%);
 }
 
 .button:disabled {
