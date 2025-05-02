@@ -1,5 +1,6 @@
 import { useField } from 'formik'
 import '@src/styles/input.css'
+import React from 'react'
 
 interface MaskedInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
@@ -28,11 +29,10 @@ const applyPattern = (value: string, pattern: string) => {
 export const MaskedInput = ({ label, mask, ...props }: MaskedInputProps) => {
   const [field, meta, helpers] = useField(props.name)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = e.target.value
-    const maskedValue = applyPattern(rawValue, mask)
+  React.useEffect(() => {
+    const maskedValue = applyPattern(field.value, mask)
     helpers.setValue(maskedValue)
-  }
+  }, [field.value])
 
   return (
     <div className="input-wrapper">
@@ -42,7 +42,6 @@ export const MaskedInput = ({ label, mask, ...props }: MaskedInputProps) => {
       <input
         {...props}
         value={field.value || ''}
-        onChange={handleChange}
         onBlur={field.onBlur}
         className={`input-field ${meta.touched && meta.error ? 'input-error' : ''}`}
         placeholder={props.placeholder}

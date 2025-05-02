@@ -15,9 +15,9 @@ async function listUsers(page: number, cpf?: string, name?: string) {
 
 const createUser = async (data: ILead) => await api.post('/leads', data)
 
-const updateUser = async (data: ILead) =>
-  await api.put(`/leads/${data.id}`, data)
+const updateUser = async (data: ILead, id: string) =>
+  await api.put(`/leads/${id}`, data)
 
-const deleteUser = async (id: number) => await api.delete(`/leads/${id}`)
+const deleteUser = async (id: string) => await api.delete(`/leads/${id}`)
 
 export { createUser, listUsers, updateUser, deleteUser }

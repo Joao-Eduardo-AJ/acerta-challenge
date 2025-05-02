@@ -9,7 +9,7 @@ import { useAppContext } from '@src/hooks'
 import { Form, useFormikContext } from 'formik'
 import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import * as y from 'yup'
 import { validationSchema } from './schema'
 import { getOptions } from '@src/services/marital'
@@ -25,6 +25,7 @@ export function CreateForm({ steps }: CreateFormProps) {
   const { values, handleChange, handleBlur, handleSubmit, errors } =
     useFormikContext<y.InferType<typeof validationSchema>>()
   const [options, setOptions] = React.useState<string[]>([])
+  const { id } = useParams()
 
   const navigateLeads = () => navigate('/leads')
 
@@ -154,7 +155,7 @@ export function CreateForm({ steps }: CreateFormProps) {
           </Button>
         ) : (
           <Button type="button" onClick={() => handleSubmit()}>
-            Cadastrar
+            {id ? 'Editar' : 'Cadastrar'}
           </Button>
         )}
       </div>

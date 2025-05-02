@@ -3,7 +3,7 @@ import { Formik } from 'formik'
 import { useNavigate, useParams } from 'react-router'
 import { CreateForm, Stepper } from './components'
 import { validationSchema } from './components/form/schema'
-import { createUser } from '@src/services/leads'
+import { createUser, updateUser } from '@src/services/leads'
 import { ILead } from '@src/types/leads'
 import { toast } from 'react-toastify'
 import { sanitizeField } from '@src/utils'
@@ -15,11 +15,10 @@ const steps = [
 
 export const CreateLeadPage = () => {
   const navigate = useNavigate()
-  const { filledFields } = useAppContext()
+  const { filledFields, leads } = useAppContext()
 
   const { id } = useParams()
-
-  const isEditMode = Boolean(id)
+  const lead = leads.find(l => l.id === id)
 
   async function handleSubmit(values: ILead) {
     // I would like to validate the information
@@ -29,8 +28,13 @@ export const CreateLeadPage = () => {
     values.cpf = sanitizeField(values.cpf)
     values.tel = sanitizeField(values.tel)
     try {
-      createUser(values)
-      toast.success(`User registered successfully`)
+      if (id) {
+        updateUser(values, id)
+        toast.success(`User edited successfully`)
+      } else {
+        createUser(values)
+        toast.success(`User registered successfully`)
+      }
       navigate('/leads')
     } catch (error: unknown) {
       const message =
@@ -45,18 +49,18 @@ export const CreateLeadPage = () => {
   return (
     <div>
       <div className="title-container">
-        <h2>{isEditMode ? 'Editando' : 'Cadastrando'}</h2>
+        <h2>{id ? 'Editando' : 'Cadastrando'}</h2>
       </div>
       <article className="paper">
         <Stepper steps={steps} filledFields={filledFields} totalFields={6} />
         <Formik
           initialValues={{
-            name: '',
-            cpf: '',
-            maritalStatus: '',
-            spousesName: '',
-            email: '',
-            tel: ''
+            name: lead?.name || '',
+            cpf: lead?.cpf || '',
+            maritalStatus: lead?.maritalStatus || '',
+            spousesName: lead?.spousesName || '',
+            email: lead?.email || '',
+            tel: lead?.tel || ''
           }}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}

@@ -5,12 +5,14 @@ import { sanitizeField } from '@src/utils'
 import { useFormikContext } from 'formik'
 import React from 'react'
 import { MdDeleteOutline, MdOutlineEdit } from 'react-icons/md'
+import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 
 export function Table() {
   const [page, setPage] = React.useState(0)
   const [count, setCount] = React.useState(0)
   const { handleLeads, leads } = useAppContext()
+  const navigate = useNavigate()
   const { values } = useFormikContext<{
     cpf: string
     name: string
@@ -61,14 +63,17 @@ export function Table() {
           </tr>
         </thead>
         <tbody>
-          {leads.map(({ cpf, email, name, tel }) => (
+          {leads.map(({ id, cpf, email, name, tel }) => (
             <tr>
               <td>{name}</td>
               <td>{cpf}</td>
               <td>{email}</td>
               <td>{tel}</td>
               <td className="row-action">
-                <button className="icon-button small">
+                <button
+                  className="icon-button small"
+                  onClick={() => navigate(`/leads/${id}/edit`)}
+                >
                   <MdOutlineEdit size={20} />
                 </button>
               </td>

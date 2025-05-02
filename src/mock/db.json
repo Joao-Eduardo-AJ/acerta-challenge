@@ -170,6 +170,24 @@
       "spousesName": "awd",
       "email": "joao@a.com",
       "tel": "51999459277"
+    },
+    {
+      "id": "6310",
+      "name": "test",
+      "cpf": "02961195047",
+      "maritalStatus": "",
+      "spousesName": "",
+      "email": "joao@a.com",
+      "tel": "51999459277"
+    },
+    {
+      "name": "teste",
+      "cpf": "02961195047",
+      "maritalStatus": "SINGLE",
+      "spousesName": "awd",
+      "email": "joao@a.com",
+      "tel": "51999459277",
+      "id": "5810"
     }
   ],
   "marital": [
