@@ -28,15 +28,6 @@
       "spousesName": ""
     },
     {
-      "id": "0f4",
-      "name": "Márcio dos Santos",
-      "email": "marciosantos@gmail.com",
-      "tel": "55987654321",
-      "cpf": "30356473058",
-      "maritalStatus": "Casado(a)",
-      "spousesName": "Silvana Spohr"
-    },
-    {
       "id": "0f5",
       "name": "João da Silva Siqueira",
       "email": "joaosiqueira@gmail.com",
@@ -163,13 +154,13 @@
       "tel": "51999459277"
     },
     {
-      "id": "80e4",
-      "name": "teste",
+      "name": "marinez",
       "cpf": "02961195047",
       "maritalStatus": "",
       "spousesName": "awd",
       "email": "joao@a.com",
-      "tel": "51999459277"
+      "tel": "51999459277",
+      "id": "80e4"
     }
   ],
   "marital": [

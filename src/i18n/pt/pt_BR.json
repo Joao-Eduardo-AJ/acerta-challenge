@@ -1,0 +1,88 @@
+{
+  "button": {
+    "CANCEL": "Cancelar",
+    "CLEAN": "Limpar tudo",
+    "CONFIRM": "Confirmar",
+    "FILTER": "Filtrar",
+    "NEW": "Novo lead",
+    "NEXT": "Avançar",
+    "PREVIOUS": "Voltar",
+    "SUBMIT": "Cadastrar",
+    "UPDATE": "Editar"
+  },
+
+  "common": {
+    "CPF_LABEL": "CPF",
+    "EMAIL_LABEL": "E-mail",
+    "MARITAL_LABEL": "Estado civil",
+    "NAME_LABEL": "Nome",
+    "PLACEHOLDER": "Digite o {{field}} do cliente",
+    "SPOUSES_LABEL": "Nome do cônjugue",
+    "TEL_LABEL": "Telefone"
+  },
+
+  "deleteWarning": {
+    "MESSAGE": "Essa ação não pode ser desfeita, você realmente quer remover o lead?",
+    "TITLE": "Você tem certeza?"
+  },
+
+  "feedback": {
+    "API_ERROR": "Erro ao executar a requisição:",
+    "LEAD_ID_NOT_PROVIDED": "Id do lead não fornecido",
+
+    "LEAD_SUCCESSFUL_CREATE": "Lead criado com sucesso!",
+    "LEAD_SUCCESSFUL_DELETE": "Lead removido com sucesso!",
+    "LEAD_SUCCESSFUL_UPDATE": "Lead editado com sucesso!",
+
+    "UNKNOWN": "Erro desconhecido! se persistir, contate o suporte!"
+  },
+
+  "maritalOption": {
+    "SINGLE": "Solteiro(a)",
+    "MARRIED": "Casado(a)",
+    "WIDOWER": "Viúvo(a)",
+    "SEPARATED": "Separado(a)"
+  },
+
+  "pageTitle": {
+    "CREATE": "Cadastro de Leads",
+    "EDIT": "Edição de Leads",
+    "LIST": "Consulta de Leads"
+  },
+
+  "select": {
+    "OPTION": "Selecione uma opção..."
+  },
+
+  "step": {
+    "0": "Dados pessoais",
+    "1": "Contato"
+  },
+
+  "tablePagination": {
+    "OF": "de",
+    "RECORDS": "registros",
+    "SHOWING": "Mostrando"
+  },
+
+  "yup": {
+    "MIXED_DEFAULT": "O campo não é válido",
+    "MIXED_REQUIRED": "O campo é obrigatório",
+    "STRING_EMAIL": "O campo deve conter um email válido",
+    "STRING_MAX": "O campo deve conter menos que",
+    "STRING_MIN": "O campo deve conter mais que",
+    "STRING_LENGTH": "O campo deve conter exatamente",
+    "MATCHES": "A senha deve conter ao menos uma letra maiúscula, uma minúscula, um caracter especial e um número",
+    "ONE_OF": "As senhas devem ser iguais",
+    "CHARACTERS": "caracteres",
+    "DATE_MAX": "O campo deve conter uma data menor que",
+    "DATE_MIN": "O campo deve conter uma data maior que",
+    "NUMBER_INTEGER": "O campo deve conter um número inteiro",
+    "NUMBER_NEGATIVE": "O campo deve conter um número negativo",
+    "NUMBER_POSITIVE": "O campo deve conter um número positivo",
+    "NUMBER_BIGGER_THAN": "O campo deve conter um número maior que",
+    "NUMBER_SMALLER_THAN": "O campo deve conter um número menor que",
+    "NUMBER_MIN": "O campo deve conter um valor com mais de",
+    "NUMBER_MAX": "O campo deve conter um valor com menos de"
+  }
+}

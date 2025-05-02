@@ -3,6 +3,7 @@ import { Paragraph } from '../../../../../components/common'
 import { useMemo } from 'react'
 import { motion } from 'motion/react'
 import './stepper.css'
+import { useTranslation } from 'react-i18next'
 
 type StepperProps = {
   steps: { id: number; label: string }[]
@@ -17,6 +18,7 @@ type CurrentCircleProps = {
 }
 
 export function Stepper({ steps, filledFields, totalFields }: StepperProps) {
+  const { t } = useTranslation()
   const { currentStep } = useAppContext()
   const percentage = useMemo(() => {
     return (filledFields / totalFields) * 100
@@ -35,7 +37,7 @@ export function Stepper({ steps, filledFields, totalFields }: StepperProps) {
             <div className="step">
               {isCurrent && (
                 <CurrentCircle
-                  label={label}
+                  label={t(`step.${index}`)}
                   number={id}
                   percentage={percentage}
                 />

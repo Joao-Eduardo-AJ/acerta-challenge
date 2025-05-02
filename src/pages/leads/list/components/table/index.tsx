@@ -4,11 +4,13 @@ import { deleteUser, listUsers } from '@src/services/leads'
 import { sanitizeField } from '@src/utils'
 import { useFormikContext } from 'formik'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { MdDeleteOutline, MdOutlineEdit } from 'react-icons/md'
 import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 
 export function Table() {
+  const { t } = useTranslation()
   const [page, setPage] = React.useState(0)
   const [count, setCount] = React.useState(0)
   const { handleLeads, leads } = useAppContext()
@@ -33,11 +35,9 @@ export function Table() {
       setCount(items)
     } catch (error: unknown) {
       const message =
-        error instanceof Error
-          ? error.message
-          : 'Unknown error. Please try again.'
+        error instanceof Error ? error.message : t('feedback.UNKNOWN')
 
-      toast.error(`API error: ${message}`)
+      toast.error(`${t('feedback.API_ERROR')} ${message}`)
       handleLeads([])
       setCount(0)
     }
@@ -45,20 +45,20 @@ export function Table() {
 
   async function deleteLead(id?: string) {
     if (!id) {
-      toast.error('Error while deleting: id not privided')
+      toast.error(
+        `${t('feedback.API_ERROR')} ${t('feedback.LEAD_ID_NOT_PROVIDED')}`
+      )
       return
     }
     try {
       await deleteUser(id)
       loadLeads()
-      toast.success('User deleted sucessfully')
+      toast.success(t('feedback.LEAD_SUCCESSFUL_DELETE'))
     } catch (error: unknown) {
       const message =
-        error instanceof Error
-          ? error.message
-          : 'Unknown error. Please try again.'
+        error instanceof Error ? error.message : t('feedback.UNKNOWN')
 
-      toast.error(`API error: ${message}`)
+      toast.error(`${t('feedback.API_ERROR')} ${message}`)
       handleLeads([])
       setCount(0)
     }
@@ -75,10 +75,10 @@ export function Table() {
       <table>
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
+            <th>{t('common.NAME_LABEL')}</th>
+            <th>{t('common.CPF_LABEL')}</th>
+            <th>{t('common.EMAIL_LABEL')}</th>
+            <th>{t('common.TEL_LABEL')}</th>
             <th />
             <th />
           </tr>
@@ -105,8 +105,8 @@ export function Table() {
                       <MdDeleteOutline size={20} />
                     </button>
                   }
-                  title="Are you sure?"
-                  message="This action cannot be undone, do you really want to delete the lead?"
+                  title={t('deleteWarning.TITLE')}
+                  message={t('deleteWarning.MESSAGE')}
                   onConfirm={() => deleteLead(id)}
                 />
               </td>

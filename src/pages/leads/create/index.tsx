@@ -7,18 +7,19 @@ import { createUser, updateUser } from '@src/services/leads'
 import { ILead } from '@src/types/leads'
 import { toast } from 'react-toastify'
 import { sanitizeField } from '@src/utils'
-
-const steps = [
-  { id: 1, label: 'Dados Pessoais' },
-  { id: 2, label: 'Contato' }
-]
+import { useTranslation } from 'react-i18next'
 
 export const CreateLeadPage = () => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { filledFields, leads } = useAppContext()
 
   const { id } = useParams()
   const lead = leads.find(l => l.id === id)
+  const steps = [
+    { id: 1, label: t('step.0') },
+    { id: 2, label: t('step.1') }
+  ]
 
   async function handleSubmit(values: ILead) {
     // I would like to validate the information
@@ -30,26 +31,24 @@ export const CreateLeadPage = () => {
     try {
       if (id) {
         updateUser(values, id)
-        toast.success(`User edited successfully`)
+        toast.success(t('feedback.LEAD_SUCCESSFUL_UPDATE'))
       } else {
         createUser(values)
-        toast.success(`User registered successfully`)
+        toast.success(t('feedback.LEAD_SUCCESSFUL_CREATE'))
       }
       navigate('/leads')
     } catch (error: unknown) {
       const message =
-        error instanceof Error
-          ? error.message
-          : 'Unknown error. Please try again.'
+        error instanceof Error ? error.message : t('feedback.UNKNOWN')
 
-      toast.error(`API error: ${message}`)
+      toast.error(`${t('feedback.API_ERROR')} ${message}`)
     }
   }
 
   return (
     <div>
       <div className="title-container">
-        <h2>{id ? 'Editando' : 'Cadastrando'}</h2>
+        <h2>{t(id ? 'pageTitle.EDIT' : 'pageTitle.CREATE')}</h2>
       </div>
       <article className="paper">
         <Stepper steps={steps} filledFields={filledFields} totalFields={6} />

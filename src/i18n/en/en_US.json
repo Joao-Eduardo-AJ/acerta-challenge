@@ -1,0 +1,88 @@
+{
+  "button": {
+    "CANCEL": "Cancel",
+    "CLEAN": "Clear all",
+    "CONFIRM": "Confirm",
+    "FILTER": "Filter",
+    "NEW": "New lead",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "SUBMIT": "Register",
+    "UPDATE": "Edit"
+  },
+
+  "common": {
+    "CPF_LABEL": "CPF",
+    "EMAIL_LABEL": "Email",
+    "MARITAL_LABEL": "Marital status",
+    "NAME_LABEL": "Name",
+    "PLACEHOLDER": "Enter the customer's {{field}}",
+    "SPOUSES_LABEL": "Spouse's name",
+    "TEL_LABEL": "Phone"
+  },
+
+  "deleteWarning": {
+    "MESSAGE": "This action cannot be undone. Are you sure you want to remove the lead?",
+    "TITLE": "Are you sure?"
+  },
+
+  "feedback": {
+    "API_ERROR": "Error performing the request:",
+    "LEAD_ID_NOT_PROVIDED": "Lead ID not provided",
+
+    "LEAD_SUCCESSFUL_CREATE": "Lead created successfully!",
+    "LEAD_SUCCESSFUL_DELETE": "Lead removed successfully!",
+    "LEAD_SUCCESSFUL_UPDATE": "Lead updated successfully!",
+
+    "UNKNOWN": "Unknown error! If it persists, contact support!"
+  },
+
+  "maritalOption": {
+    "SINGLE": "Single",
+    "MARRIED": "Married",
+    "WIDOWER": "Widowed",
+    "SEPARATED": "Separated"
+  },
+
+  "pageTitle": {
+    "CREATE": "Lead Registration",
+    "EDIT": "Lead Editing",
+    "LIST": "Lead Consultation"
+  },
+
+  "select": {
+    "OPTION": "Select an option..."
+  },
+
+  "step": {
+    "0": "Personal information",
+    "1": "Contact"
+  },
+
+  "tablePagination": {
+    "OF": "of",
+    "RECORDS": "records",
+    "SHOWING": "Showing"
+  },
+
+  "yup": {
+    "MIXED_DEFAULT": "The field is not valid",
+    "MIXED_REQUIRED": "The field is required",
+    "STRING_EMAIL": "The field must contain a valid email",
+    "STRING_MAX": "The field must contain fewer than",
+    "STRING_MIN": "The field must contain more than",
+    "STRING_LENGTH": "The field must contain exactly",
+    "MATCHES": "The password must contain at least one uppercase letter, one lowercase letter, one special character, and one number",
+    "ONE_OF": "Passwords must match",
+    "CHARACTERS": "characters",
+    "DATE_MAX": "The field must contain a date earlier than",
+    "DATE_MIN": "The field must contain a date later than",
+    "NUMBER_INTEGER": "The field must contain an integer",
+    "NUMBER_NEGATIVE": "The field must contain a negative number",
+    "NUMBER_POSITIVE": "The field must contain a positive number",
+    "NUMBER_BIGGER_THAN": "The field must contain a number greater than",
+    "NUMBER_SMALLER_THAN": "The field must contain a number less than",
+    "NUMBER_MIN": "The field must contain a value greater than",
+    "NUMBER_MAX": "The field must contain a value less than"
+  }
+}

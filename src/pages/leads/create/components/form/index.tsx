@@ -14,12 +14,14 @@ import * as y from 'yup'
 import { validationSchema } from './schema'
 import { getOptions } from '@src/services/marital'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 
 type CreateFormProps = {
   steps: { id: number; label: string }[]
 }
 
 export function CreateForm({ steps }: CreateFormProps) {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { currentStep, goPrev, goNext, handleFilledFields } = useAppContext()
   const { values, handleChange, handleBlur, handleSubmit, errors } =
@@ -74,16 +76,20 @@ export function CreateForm({ steps }: CreateFormProps) {
               <div className="fields-row">
                 <MaskedInput
                   mask="999.999.999-99"
-                  label="CPF"
+                  label={t('common.CPF_LABEL')}
+                  placeholder={t('common.PLACEHOLDER', {
+                    field: t('common.CPF_LABEL').toLowerCase()
+                  })}
                   name="cpf"
-                  placeholder="Digite o CPF do cliente"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.cpf}
                 />
                 <Input
-                  label="Nome do cliente"
-                  placeholder="Digite o nome do cliente"
+                  label={t('common.NAME_LABEL')}
+                  placeholder={t('common.PLACEHOLDER', {
+                    field: t('common.NAME_LABEL').toLowerCase()
+                  })}
                   name="name"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -92,16 +98,21 @@ export function CreateForm({ steps }: CreateFormProps) {
               </div>
               <div className="fields-row">
                 <Select
-                  label="Estado civil"
-                  name="maritalStatus"
+                  label={t('common.MARITAL_LABEL')}
                   onChange={handleChange}
+                  name="maritalStatus"
                   onBlur={handleBlur}
                   value={values.maritalStatus}
-                  options={options.map(opt => ({ label: opt, value: opt }))}
+                  options={options.map(opt => ({
+                    label: t(`maritalOption.${opt}`),
+                    value: opt
+                  }))}
                 />
                 <Input
-                  label="Nome do cônjugue"
-                  placeholder="Digite o nome do cônjugue"
+                  label={t('common.SPOUSES_LABEL')}
+                  placeholder={t('common.PLACEHOLDER', {
+                    field: t('common.SPOUSES_LABEL').toLowerCase()
+                  })}
                   name="spousesName"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -118,8 +129,10 @@ export function CreateForm({ steps }: CreateFormProps) {
               className="fields-row flex-1"
             >
               <Input
-                label="E-mail"
-                placeholder="Digite o e-mail do cliente"
+                label={t('common.EMAIL_LABEL')}
+                placeholder={t('common.PLACEHOLDER', {
+                  field: t('common.EMAIL_LABEL').toLowerCase()
+                })}
                 name="email"
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -127,9 +140,11 @@ export function CreateForm({ steps }: CreateFormProps) {
               />
               <MaskedInput
                 mask="(99) 9 9999-9999"
-                label="Telefone"
+                label={t('common.TEL_LABEL')}
+                placeholder={t('common.PLACEHOLDER', {
+                  field: t('common.TEL_LABEL').toLowerCase()
+                })}
                 name="tel"
-                placeholder="Digite o telefone do cliente"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.tel}
@@ -142,20 +157,20 @@ export function CreateForm({ steps }: CreateFormProps) {
       <div className="actions-row">
         {currentStep === 0 ? (
           <Button type="button" variant="outlined" onClick={navigateLeads}>
-            Cancelar
+            {t('button.CANCEL')}
           </Button>
         ) : (
           <Button type="button" variant="outlined" onClick={goPrev}>
-            Voltar
+            {t('button.PREVIOUS')}
           </Button>
         )}
         {currentStep === 0 ? (
           <Button type="button" onClick={goNext}>
-            Avançar
+            {t('button.NEXT')}
           </Button>
         ) : (
           <Button type="button" onClick={() => handleSubmit()}>
-            {id ? 'Editar' : 'Cadastrar'}
+            {id ? t('button.UPDATE') : t('button.SUBMIT')}
           </Button>
         )}
       </div>

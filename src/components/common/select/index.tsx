@@ -1,6 +1,7 @@
 import { useField } from 'formik'
 import '@src/styles/input.css'
 import { SelectHTMLAttributes } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface Option {
   value: string
@@ -13,6 +14,7 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
 }
 
 export const Select = ({ label, options, ...props }: SelectProps) => {
+  const { t } = useTranslation()
   const [field, meta] = useField(props.name)
 
   return (
@@ -26,7 +28,7 @@ export const Select = ({ label, options, ...props }: SelectProps) => {
         id={props.name}
         className={`input-field ${meta.touched && meta.error ? 'input-error' : ''}`}
       >
-        <option value="">Select an option</option>
+        <option value="">{t('select.OPTION')}</option>
         {options.map(opt => (
           <option key={opt.value} value={opt.value}>
             {opt.label}

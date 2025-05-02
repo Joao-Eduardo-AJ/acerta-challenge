@@ -2,6 +2,7 @@ import { Paragraph } from '@src/components/common'
 import { useRef } from 'react'
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md'
 import './table-pagination.css'
+import { useTranslation } from 'react-i18next'
 
 interface TablePaginationProps {
   colSpan: number
@@ -16,6 +17,7 @@ export const TablePagination = ({
   page,
   onPageChange
 }: TablePaginationProps) => {
+  const { t } = useTranslation()
   const rowsPerPage = 10
   const ref = useRef<HTMLDivElement>(null)
 
@@ -41,7 +43,7 @@ export const TablePagination = ({
         <td colSpan={colSpan}>
           <div className="table-pagination">
             <Paragraph variant="caption">
-              {`Showing ${start}-${end} of ${count}`}
+              {`${t('tablePagination.SHOWING')} ${start}-${end} ${t('tablePagination.OF')} ${count} ${t('tablePagination.RECORDS')}`}
             </Paragraph>
             <div className="table-pagination-actions">
               <button
