@@ -2,15 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 
   font-weight: var(--semibold);
   font-size: var(--text-md);
   line-height: var(--leading-lg);
 
-  height: 40px;
-  min-width: 133px;
-  border-radius: 4px;
+  height: 2.5rem;
+  min-width: 8.3rem;
+  border-radius: 0.25rem;
   cursor: pointer;
 }
 

@@ -9,11 +9,11 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en_US: { translation: en_US },
-      pt_BR: { translation: pt_BR }
+      'en-US': { translation: en_US },
+      'pt-BR': { translation: pt_BR }
     },
-    fallbackLng: 'en_US',
-    supportedLngs: ['en_US', 'pt_BR'],
+    fallbackLng: 'en-US',
+    supportedLngs: ['en-US', 'pt-BR'],
     detection: {
       order: ['navigator']
     }

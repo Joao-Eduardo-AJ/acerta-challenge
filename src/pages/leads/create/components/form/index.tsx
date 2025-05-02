@@ -27,8 +27,14 @@ export function CreateForm({ steps }: CreateFormProps) {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { currentStep, goPrev, goNext, handleFilledFields } = useAppContext()
-  const { values, handleChange, handleBlur, handleSubmit, errors } =
-    useFormikContext<y.InferType<typeof validationSchema>>()
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    errors,
+    isSubmitting
+  } = useFormikContext<y.InferType<typeof validationSchema>>()
   const { id } = useParams()
   const [options, setOptions] = React.useState<IOption[]>([])
 
@@ -57,7 +63,7 @@ export function CreateForm({ steps }: CreateFormProps) {
     if ((errors.cpf || errors.name) && currentStep > 0) {
       goPrev()
     }
-  }, [errors.cpf, errors.name])
+  }, [isSubmitting])
 
   React.useEffect(() => {
     loadMaritalOptions()
@@ -79,9 +85,9 @@ export function CreateForm({ steps }: CreateFormProps) {
           {currentStep === 0 ? (
             <motion.div
               key={'step-0'}
-              initial={{ opacity: 0, transform: 'translateX(400px)' }}
+              initial={{ opacity: 0, transform: 'translateX(25rem)' }}
               animate={{ opacity: 1, transform: 'translateX(0)' }}
-              exit={{ opacity: 0, transform: 'translateX(-400px)' }}
+              exit={{ opacity: 0, transform: 'translateX(-25rem)' }}
               className="container flex-1"
             >
               <div className="fields-row">
@@ -124,6 +130,7 @@ export function CreateForm({ steps }: CreateFormProps) {
                   placeholder={t('common.PLACEHOLDER', {
                     field: t('common.SPOUSES_LABEL').toLowerCase()
                   })}
+                  disabled={values.maritalStatus !== 'MARRIED'}
                   name="spousesName"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -134,9 +141,9 @@ export function CreateForm({ steps }: CreateFormProps) {
           ) : (
             <motion.div
               key={'step-1'}
-              initial={{ opacity: 0, transform: 'translateX(400px)' }}
+              initial={{ opacity: 0, transform: 'translateX(25rem)' }}
               animate={{ opacity: 1, transform: 'translateX(0)' }}
-              exit={{ opacity: 0, transform: 'translateX(-400px)' }}
+              exit={{ opacity: 0, transform: 'translateX(-25rem)' }}
               className="fields-row flex-1"
             >
               <Input

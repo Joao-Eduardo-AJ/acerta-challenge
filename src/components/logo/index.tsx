@@ -9,7 +9,7 @@ export const Logo = () => (
       alt="logo acerta"
       className="logo-certa"
       initial={{ x: -24, opacity: 1 }}
-      whileHover={{ opacity: 0 }}
+      whileHover={{ opacity: 0, filter: 'blur(4px)' }}
       transition={{ duration: 0.3, ease: 'easeIn' }}
     />
   </span>

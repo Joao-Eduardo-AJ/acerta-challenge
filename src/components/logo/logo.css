@@ -1,17 +1,18 @@
 .logo-wrapper {
   position: relative;
-  width: 134px;
+  width: 8.4rem;
   display: flex;
-  height: 24px;
+  height: 1.5rem;
+  transition: all 0.3s;
 }
 
 .logo-certa {
   opacity: 0;
-  padding: 0 0 0 24px;
+  padding: 0 0 0 1.5rem;
 }
 
 .logo-wrapper:hover {
-  width: 32px;
+  width: 2rem;
 }
 
 .logo-wrapper::before,
@@ -21,6 +22,7 @@
   content: '';
   width: 5.4px;
   background-color: #f79028;
+  z-index: -1;
 }
 
 .logo-wrapper::before {
@@ -29,6 +31,6 @@
 }
 
 .logo-wrapper::after {
-  height: 18.3px;
+  height: 1.15rem;
   top: 0;
 }

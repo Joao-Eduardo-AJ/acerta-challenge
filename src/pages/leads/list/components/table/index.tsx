@@ -85,7 +85,7 @@ export function Table() {
         </thead>
         <tbody>
           {leads.map(({ id, cpf, email, name, tel }) => (
-            <tr>
+            <tr key={id}>
               <td>{name}</td>
               <td>{cpf}</td>
               <td>{email}</td>

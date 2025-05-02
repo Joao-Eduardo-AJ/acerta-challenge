@@ -45,7 +45,7 @@
   padding: 0;
 }
 
-body {
+html {
   background-color: var(--color-background-system);
 }
 
@@ -130,6 +130,15 @@ tbody > tr > td:first-child {
 
 /* icon buttons */
 
+.layout {
+  max-width: 1082px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto;
+  padding: 2rem 4rem 0;
+}
+
 .icon-button {
   display: flex;
   justify-content: center;
@@ -137,6 +146,7 @@ tbody > tr > td:first-child {
   background-color: transparent;
   color: var(--gray-base);
   border-radius: 50%;
+  transition: all 0.3s;
 }
 
 .icon-button:hover {
