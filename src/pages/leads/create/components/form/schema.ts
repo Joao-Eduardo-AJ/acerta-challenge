@@ -31,7 +31,7 @@ export const validationSchema = y.object({
     .transform(value => value?.replace(/[.-]/g, '') || '')
     .required('CPF é obrigatório')
     .test('cpf-valid', 'CPF inválido', value => verifyCpf(value)),
-  maritalStatus: y.string(),
+  maritalStatus: y.string().required(),
   spousesName: y.string(),
   email: y.string().email().required(),
   tel: y

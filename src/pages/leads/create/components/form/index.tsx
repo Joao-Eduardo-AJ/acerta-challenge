@@ -33,7 +33,8 @@ export function CreateForm({ steps }: CreateFormProps) {
     handleBlur,
     handleSubmit,
     errors,
-    isSubmitting
+    isSubmitting,
+    setFieldValue
   } = useFormikContext<y.InferType<typeof validationSchema>>()
   const { id } = useParams()
   const [options, setOptions] = React.useState<IOption[]>([])
@@ -54,13 +55,23 @@ export function CreateForm({ steps }: CreateFormProps) {
     }
   }
 
+  function handleMaritalChange(value: string) {
+    handleChange({
+      target: { name: 'maritalStatus', value }
+    } as React.ChangeEvent<HTMLSelectElement>)
+    setFieldValue('spousesName', '')
+  }
+
   React.useEffect(() => {
     const newFields = Object.values(values).filter(value => value !== '').length
     handleFilledFields(newFields)
   }, [handleFilledFields, values])
 
   React.useEffect(() => {
-    if ((errors.cpf || errors.name) && currentStep > 0) {
+    if (
+      (errors.cpf || errors.name || errors.maritalStatus) &&
+      currentStep > 0
+    ) {
       goPrev()
     }
   }, [isSubmitting])
@@ -116,7 +127,7 @@ export function CreateForm({ steps }: CreateFormProps) {
               <div className="fields-row">
                 <Select
                   label={t('common.MARITAL_LABEL')}
-                  onChange={handleChange}
+                  customOnChange={handleMaritalChange}
                   name="maritalStatus"
                   onBlur={handleBlur}
                   value={values.maritalStatus}
